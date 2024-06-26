@@ -29,7 +29,7 @@ describe('Test the interest rate feature.', () => {
 
         // Check modal dismiss via mouse click
         cy.get('@HelperButton').click()
-        cy.get(userData.pages.mortgageCalculator.siteText.InsuranceText).as('ClickOutside').click()
+        cy.get(userData.pages.mortgageCalculator.siteText.insuranceText).click()
         cy.contains('Representative interest rates are based').should('not.exist')
 
         // Check modal dismiss via ESC key press
@@ -59,7 +59,7 @@ describe('Test the interest rate feature.', () => {
 
         // Empty field check
         cy.get(userData.pages.mortgageCalculator.field.interestRateField).as('InterestField').clear()
-        cy.get(userData.pages.mortgageCalculator.siteText.InsuranceText).as('ClickOutside').click()
+        cy.get(userData.pages.mortgageCalculator.siteText.insuranceText).as('ClickOutside').click()
         cy.contains('Invalid value').should("exist")
 
         // Non-numerical check
@@ -82,7 +82,7 @@ describe('Test the interest rate feature.', () => {
 
     });
 
-    it.only('Verify entering a valid number between 0 and 100 updates the "Your payment" pie chart', () => {
+    it('Verify entering a valid number between 0 and 100 updates the "Your payment" pie chart', () => {
 
 
         // Setup initial Alias for easy of coding
