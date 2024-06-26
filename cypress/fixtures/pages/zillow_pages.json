@@ -1,0 +1,38 @@
+{
+  "pages": {
+    "template": {
+      "siteButton": {
+        "buttonA": "aaa"
+      },
+      "field": {
+        "fieldA": "aaa"
+      },
+      "hrefLink": {
+        "linkA": "aaa"
+      },
+      "siteText": {
+        "textA": "aaa"
+      }
+    },
+    "mortgageCalculator": {
+      "siteButton": {
+        "interestRateHelperButton": "html > body > div:nth-of-type(2) > div > div > main > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > form > div:nth-of-type(4) > div:nth-of-type(1) > div > button",
+        "breakdownButton": "#breakdown",
+        "scheduleButton": "#schedule",
+        "modalCloseButton": ".CloseButton-sc-sqbalp-0"
+      },
+      "field": {
+        "interestRateField": "#rate"
+      },
+      "hrefLink": {
+        "seeCurrentRatesLink": "See current rates"
+      },
+      "siteText": {
+        "yourPaymentValue": "[y=\"-10\"]",
+        "insuranceText": "[data-label=\"Insurance\"]",
+        "taxesText": "[data-label=\"Taxes\"]",
+        "pAndIText": "[aria-describedby=\"p-and-i-description\"]"
+      }
+    }
+  }
+}
