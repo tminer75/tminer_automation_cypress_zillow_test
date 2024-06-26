@@ -82,40 +82,58 @@ describe('Test the interest rate feature.', () => {
 
     });
 
-    it('Verify entering a valid number between 0 and 100 updates the "Your payment" pie chart', () => {
+    it.only('Verify entering a valid number between 0 and 100 updates the "Your payment" pie chart', () => {
 
-        // let yourPaymenetValue = '$1,117'
-        let yourPaymenetValue
-        let insuranceValue = '$105'
-        let taxesValue = '$240'
-        let piValue = '$772'
 
-        // Capture the initial values from the pie chart for later comparison
-
+        // Setup initial Alias for easy of coding
         cy.get(userData.pages.mortgageCalculator.siteText.yourPaymentValue).as('YourPaymentValue').click()
-        //try and get that textContent
+        cy.get(userData.pages.mortgageCalculator.field.interestRateField).as('iRateField')
+        cy.get(userData.pages.mortgageCalculator.siteText.pAndIText).as('pAndIText')
+
+
+        // Check that "Your Payment" updates when Interest Rate field is updated
         cy.get('@YourPaymentValue').then(($input) => {
-            yourPaymenetValue = $input.text()
+            let yourPaymenetValue = $input.text()
 
-            cy.log(yourPaymenetValue)
-            cy.log((insuranceValue))
+            cy.get('@iRateField').clear()
+            cy.get('@iRateField').type('1')
+            cy.get('@YourPaymentValue').click()
 
-            // PLAN: Take this code block and use it to
-            // 1) set the values, 2) change the interest rate, 3) check the new values.
-            // Do this tomorrow
+            cy.get('@YourPaymentValue').then(($secondInput) => {
+                let newYourPaymentValue = $secondInput.text()
 
+                //cy.log("Initial value: " + yourPaymenetValue)
+                //cy.log("New value: " + newYourPaymentValue)
+
+                expect(newYourPaymentValue).to.not.equal(yourPaymenetValue)
+
+            })
         })
-        cy.log('I am a test')
 
-        cy.log(yourPaymenetValue)
+        // Check that "P & I" updates when Interest Rate field is updated
+        cy.get('@pAndIText').then(($input) => {
+            let yourPandIValue = $input.text()
 
-        cy.get(userData.pages.mortgageCalculator.field.interestRateField).as('InterestField').clear()
-        cy.get('@InterestField').type('1')
+            cy.log(yourPandIValue)
+
+            cy.get('@iRateField').clear()
+            cy.get('@iRateField').type('2')
+            cy.get('@YourPaymentValue').click()
+
+            cy.get('@pAndIText').then(($secondInput) => {
+                let newYourPandIValue = $secondInput.text()
+
+                cy.log(newYourPandIValue)
+
+                //cy.log("Initial value: " + yourPandIValue)
+                //cy.log("New value: " + newYourPandIValue)
+
+                expect(newYourPandIValue).to.not.equal(yourPandIValue)
+
+            })
+        })
 
 
-        // Update the interest field
-
-        //cy.get(userData.pages.mortgageCalculator.siteText.InsuranceText).nextSibling
     });
 
     // Blocking this, but skipping it since it a little too complicated to automate at the moment.

@@ -28,10 +28,10 @@
         "seeCurrentRatesLink": "See current rates"
       },
       "siteText": {
-        "yourPaymentValue": "[y=\"-10\"]",
-        "insuranceText": "[data-label=\"Insurance\"]",
-        "taxesText": "[data-label=\"Taxes\"]",
-        "pAndIText": "[aria-describedby=\"p-and-i-description\"]"
+        "yourPaymentValue": "[y=\"20\"]",
+        "insuranceText": "[data-label=\"Insurance\"]+text",
+        "taxesText": "[data-label=\"Taxes\"]+text",
+        "pAndIText": "[aria-describedby=\"p-and-i-description\"]++"
       }
     }
   }
