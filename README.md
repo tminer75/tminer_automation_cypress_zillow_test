@@ -39,3 +39,12 @@ The following are instructions for downloading and running the Cypress tests ass
 * Select Chrome and click "Start E2E Testing in Chrome"
 * Click "interest-rate.cy.js" in the Specs panel
 * Observe the tests running
+
+
+# Automation Notes, Thoughts, and Considerations
+* After writing the automation I would consider breaking down some of the test into smaller chunks. A part of me is paranoid that this will increase test run times, but it would further isolate tests reducing cascading faliures (an example is the interest rate error tests).
+* With this project I put all of the selector information into a page object json. This allowed me to quickly make updates to this file instead of refactoring my code. In the future I would like to move away from json page object files and move towards a normal page object structure within fixtures.
+* Some of the selectors in these test feel very brittle (the interest rate helper tooltip for example). Ideally there would be collaboration with a dev in which unique ids or data- tags are added for less flakey tests.
+* While writing the code I was trying to think of ways to better link/point the tests at the tesptlan for quicker back and forth referencing. I would love to have a discussion with a dev on whether this is a thing that can be achieved.
+* Though it was beyond the scope of this test it would be interesting to include some type of component verification tests. This could possible cover the "this looks correct" examples in the testplan. Would need to have conversations with devs on if this is feasible, and if so how best to tackle this.
+* I excluded a .yaml CI/CD file in this project. That would be a top priority I would like to integrate, in collaboration with DevOps, in the future so that tests can be run automatically.
